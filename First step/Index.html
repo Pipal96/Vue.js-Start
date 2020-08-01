@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Vue.JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- По ID происходит отслеживание дейтвий внутри блока -->
+    <div id="hello">
+
+        <!-- @ - обозначает обработчик событий, в данном случае click, а в обработчике события прописывается метод объекта new Vue, в этом методе мы можем прописать что должно произойти и с какой переменной при действии click -->
+        <button @click="chengeText">Сменить текст</button>
+
+        <!-- {{title}} - способ записи переменной. Переменные объявляются в объекте data:{} -->
+        <h1>{{ title}}</h1>
+
+        <!-- : - Конструкция динамической смены классов. Событие @input прослушивает тег input и присваевает значение colorCSS = $event.target.value, что дословно значит (collrCSS равен всему тому, что вводят в поле input) -->
+        <h2 :class="colorCSS">color: {{colorCSS}}</h2>
+        <input @input="colorCSS = $event.target.value" type="text">
+
+        <!-- @input слушает после input и применяет метод increment() - параметром которого является все то, что введено в тексовое поле. -->
+        <input @input="increment ($event.target.value)" type="text">
+        <p>{{value}}</p>
+        <p>{{value2}}</p>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
