@@ -9,3 +9,19 @@
 .red {
     background-color: red;
 }
+
+.card {
+    background-color: gray;
+    width: 300px;
+    height: 200px;
+    border: solid 1px black;
+}
+
+.card p,
+.card h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: honeydew;
+    font-family: Arial, Helvetica, sans-serif;
+}

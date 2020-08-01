@@ -28,7 +28,31 @@
         <input @input="increment ($event.target.value)" type="text">
         <p>{{value}}</p>
         <p>{{value2}}</p>
+
+        <!-- show = !show работает как toggle -->
+        <button v-on:click="show = !show">Скрыть / Показать</button>
+
+        <!-- v-if условный оператор которые принимает булевое значение, он может убрать элемент из DOM структуры или же добавить true or false -->
+        <p v-if="show">Текст который может стать невидимым</p>
+        <p v-else>Текст который появился взамен</p>
+
+        <!-- Цикл for тут в целом все понятно и так) -->
+        <ul>
+            <li v-for="(car, index) in cars" :key="index + 1">Марка: {{car.model}}, ее скорость: {{car.speed}}</li>
+        </ul>
+
+        <!-- filter -->
+        <p>{{ lowerText | upperCase}}</p>
+        <p>{{ upperText | alwaysLowerWords}}</p>
     </div>
+
+    <div id="app">
+        <card></card>
+        <card></card>
+    </div>
+
+
+
 
     <script src="scripts/main.js"></script>
 </body>

@@ -1,9 +1,35 @@
+/* Global filter */
+
+Vue.filter('alwaysLowerWords', function (value) {
+    return value.toLowerCase();
+})
+
 new Vue({
     el: "#hello",
     data: {
         title: "Hello World!",
         colorCSS: '',
         value: 1,
+        show: true,
+        cars: [{
+                model: "BMW",
+                speed: 300.8
+            }, {
+                model: "KIA",
+                speed: 180.8
+            },
+
+            {
+                model: "Audi",
+                speed: 280.8
+            },
+            {
+                model: "Ford",
+                speed: 210
+            },
+        ],
+        lowerText: "текст маленькими буквами, но с фильтром",
+        upperText: 'ТЕКСТ БОЛЬШИМИ БУКВАМИ',
     },
 
     methods: {
@@ -30,5 +56,25 @@ new Vue({
             return this.value * 2;
         }
     },
+    filters: {
+        upperCase(value) {
+            return value.toUpperCase();
+        }
+    },
 
 });
+
+
+Vue.component('card', {
+    data: function () {
+        return {
+            headline: 'new Card',
+            text: 'description',
+        }
+    },
+    template: `<div><div class="card"><h2>{{headline}}</h2><p>{{text}}</p></div></div>`,
+});
+
+new Vue({
+    el: '#app',
+})
