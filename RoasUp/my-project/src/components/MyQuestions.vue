@@ -1,5 +1,6 @@
 <template>
-  <h1>{{h1}}</h1>
+<div class="wrapper"><h2>{{h1}}</h2></div>
+  
 </template>
 
 <script>

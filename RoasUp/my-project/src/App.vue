@@ -3,23 +3,28 @@
     <aside>
       <Sidebar></Sidebar>
     </aside>
-    <MyQuestions></MyQuestions>
-    <Messanger></Messanger>
+    <component :is="messager"></component>
   </div>
 </template>
 
 <script>
   import Sidebar from './components/Sidebar.vue'
   import MyQuestions from './components/MyQuestions.vue'
-  import Messanger from './components/Messanger.vue'
+  import Messager from './components/Messanger.vue'
 
   export default {
     name: 'App',
     components: {
       Sidebar,
       MyQuestions,
-      Messanger,
-    }
+    },
+    data() {
+      return {
+        myQuestions: MyQuestions,
+        messager: Messager,
+      }
+    },
+  
   }
 </script>
 

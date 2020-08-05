@@ -39,6 +39,7 @@
 
 <script>
     import SVGLetter from './SvgLetter.vue'
+
     export default {
         data() {
             return {
@@ -56,7 +57,9 @@
         name: 'app-SVG',
         components: {
             SVGLetter,
-        }
+        },
+
+
     }
 </script>
 
