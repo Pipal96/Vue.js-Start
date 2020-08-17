@@ -111,6 +111,7 @@
         display: flex;
         transition: 0.3s;
         border-radius: 5px;
+         background-color: transparent;
     }
 
     .wrapper-my-questions__filter_condition:hover {

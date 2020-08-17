@@ -3,7 +3,7 @@
     <aside>
       <Sidebar></Sidebar>
     </aside>
-    <component :is="myQuestions"></component>
+    <component @currentComponent="currentComponent" :is="current"></component>
   </div>
 </template>
 
@@ -17,11 +17,16 @@
     components: {
       Sidebar,
       MyQuestions,
+      Messager,
     },
     data() {
       return {
-        myQuestions: MyQuestions,
-        messager: Messager,
+        current: '',
+      }
+    },
+    methods: {
+      currentComponent(data) {
+        this.current = data
       }
     },
 
@@ -84,7 +89,7 @@
     box-shadow: 0px 0px 5px 3px #486068, 0px 0px 5px 5px #486068;
   }
 
- 
+
 
   ul {
     padding: 0;

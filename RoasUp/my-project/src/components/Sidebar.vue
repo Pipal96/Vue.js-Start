@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar">
         <TopSidebar></TopSidebar>
-        <messages-sidebar></messages-sidebar>
+        <messages-sidebar @currentComponent="currentComponent"></messages-sidebar>
     </div>
 </template>
 
@@ -14,7 +14,18 @@
         components: {
             TopSidebar,
             MessagesSidebar,
-        }
+        },
+        data() {
+            return {
+                test: '',
+            }
+        },
+        methods: {
+            currentComponent(event) {
+                this.test = event
+                console.log(this.test)
+            }
+        },
     }
 </script>
 
