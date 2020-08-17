@@ -10,7 +10,7 @@
         </div>
         <div class="links-tabs">
             <ul>
-                <li><a class="text-capitalize link-style" href="#">
+                <li><a @click="firstLineClick" class="text-capitalize link-style" href="#">
                         <SVGLetter class="margin-message"></SVGLetter>
                         <p class="text tab-style">{{first_line}}</p> <span class="margin-message text tab-style">{{first_value}}</span>
                        
@@ -57,6 +57,11 @@
         name: 'app-SVG',
         components: {
             SVGLetter,
+        },
+        methods: {
+            firstLineClick: function(){
+
+            }
         },
 
 
