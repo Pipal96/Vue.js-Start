@@ -21,7 +21,7 @@
     },
     data() {
       return {
-        current: '',
+        current: 'app-myquestions',
       }
     },
     methods: {
