@@ -10,30 +10,14 @@
         </div>
         <div class="links-tabs">
             <ul>
-                <li><a @click="firstLineClick()" class="text-capitalize link-style" href="#">
+                <li v-for="(link, index) in links" :key="index">
+                    <a @click="showComponent(index)" class="text-capitalize link-style" href="#">
                         <SVGLetter class="margin-message"></SVGLetter>
-                        <p class="text tab-style">{{first_line}}</p> <span
-                            class="margin-message text tab-style">{{first_value}}</span>
+                        <p class="text tab-style">{{link.headline_link}}</p>
+                        <span class="margin-message text tab-style">{{link.count_message}}</span>
 
-                    </a></li>
-                <li><a class="text-capitalize link-style" href="#">
-                        <SVGLetter class="margin-message"></SVGLetter>
-                        <p class="text tab-style"> {{second_line}}</p>
-                        <span class="margin-message text tab-style">{{second_value}}</span>
-
-                    </a></li>
-                <li><a class="text-capitalize link-style" href="#">
-
-                        <SVGLetter class="margin-message"></SVGLetter>
-                        <p class="text tab-style">{{third_line}}</p>
-                        <span class="margin-message text tab-style">{{third_value}}</span>
-                    </a></li>
-                <li><a class="text-capitalize link-style" href="#">
-
-                        <SVGLetter class="margin-message"></SVGLetter>
-                        <p class="text tab-style">{{fourth_line}}</p>
-
-                    </a></li>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -47,13 +31,23 @@
             return {
                 block_name: 'message',
                 block_subtitle_name: 'history',
-                first_line: 'my questions',
-                second_line: 'Messanger',
-                third_line: 'Community QA',
-                fourth_line: 'FAQ',
-                first_value: `(${45})`,
-                second_value: `(${11})`,
-                third_value: `(${23})`,
+                links: [{
+                        headline_link: 'my questions',
+                        count_message: '()',
+                    },
+                    {
+                        headline_link: 'Messanger',
+                        count_message: '()',
+                    },
+                    {
+                        headline_link: 'Community QA',
+                        count_message: '()',
+                    },
+                    {
+                        headline_link: 'FAQ',
+                        count_message: '()',
+                    },
+                ],
                 currentComponent: '',
             }
         },
@@ -62,13 +56,11 @@
             SVGLetter,
         },
         methods: {
-            firstLineClick() {
-                this.currentComponent = this.first_line
+            showComponent(index) {
+                this.currentComponent = this.links[index].headline_link
                 this.$emit('currentComponent', this.currentComponent)
             }
         },
-
-
     }
 </script>
 

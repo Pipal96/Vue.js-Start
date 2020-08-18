@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <aside>
-      <Sidebar></Sidebar>
+      <Sidebar @currentComponent="currentComponent"></Sidebar>
     </aside>
-    <component @currentComponent="currentComponent" :is="current"></component>
+    <component :is="current"></component>
   </div>
 </template>
 
@@ -16,8 +16,8 @@
     name: 'App',
     components: {
       Sidebar,
-      MyQuestions,
-      Messager,
+      'app-myquestions': MyQuestions,
+      'app-messanger': Messager,
     },
     data() {
       return {
@@ -25,8 +25,10 @@
       }
     },
     methods: {
-      currentComponent(data) {
-        this.current = data
+      currentComponent(event) {
+        let removeSpace = event.replace(/\s/g, '').toLowerCase();
+        this.current = 'app-' + removeSpace
+        console.log(removeSpace)
       }
     },
 

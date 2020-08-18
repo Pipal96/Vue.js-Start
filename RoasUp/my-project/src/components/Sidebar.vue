@@ -17,13 +17,15 @@
         },
         data() {
             return {
-                test: '',
+                // test: '',
             }
         },
         methods: {
             currentComponent(event) {
-                this.test = event
-                console.log(this.test)
+                console.log(event + ' sidebar message')
+                this.$emit('currentComponent', event)
+                // this.test = event
+                // console.log(this.test)
             }
         },
     }
