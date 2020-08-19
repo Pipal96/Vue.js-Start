@@ -10,9 +10,17 @@
             </div>
         </div>
 
-        <div class="card__message-block">
-            <p class="card__message">{{default_message}}</p>
+        <div class="card__message-wrapper">
+            <div class="card__message-block">
+                <p class="card__message">{{default_message}}</p>
+            </div>
+            <div class="card__date-message-block">
+                <p class="card__date-message">Goest: {{user_time}} am</p>
+            </div>
         </div>
+
+        <button aria-label="adds message" class="button-add button-add_clndition-card">+</button>
+
     </div>
 </template>
 
@@ -37,7 +45,7 @@
         background-color: #fff;
         padding: 15px;
         border-radius: 3px;
-
+        position: relative;
         display: flex;
     }
 
@@ -115,6 +123,13 @@
         align-items: flex-end;
     }
 
+    .card__message-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
     .card__time {
         color: #aaaaaa;
         font-weight: bold;
@@ -124,5 +139,45 @@
         margin: 5px 0;
         color: #636363;
         font-weight: 500;
+    }
+
+    .card__date-message {
+        color: #cdcdcd;
+    }
+
+    .button-add_condition-sidebar {
+        color: #05212a;
+        background-color: #2a4249;
+    }
+
+    .button-add_condition-sidebar:hover {
+        background-color: #486068;
+    }
+
+    .button-add_clndition-card {
+        color: #cdcdcd;
+        background-color: transparent;
+        border: solid 1px #cdcdcd;
+        border-radius: 100px;
+        box-sizing: border-box;
+        transition: 0.3s;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .button-add_clndition-card:hover {
+        box-shadow: 0px 0px 3px 1px #cdcdcd;
+        transition: 0.3s;
+    }
+
+    .button-add_clndition-card:focus {
+        outline: none;
+        box-shadow: 0px 0px 5px 2px #cdcdcd;
+        transition: 0.3s;
+    }
+
+    .button-add_clndition-card:active {
+        box-shadow: 0px 0px 5px 3px #cdcdcd, 0px 0px 5px 5px #cdcdcd;
     }
 </style>

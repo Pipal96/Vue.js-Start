@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar">
-        <TopSidebar></TopSidebar>
+        <TopSidebar @switchToTheMessageComponent="switchToTheMessageComponent"></TopSidebar>
         <messages-sidebar @currentComponent="currentComponent"></messages-sidebar>
     </div>
 </template>
@@ -17,15 +17,17 @@
         },
         data() {
             return {
-                // test: '',
+                emersionDate: '',
             }
         },
         methods: {
             currentComponent(event) {
-                console.log(event + ' sidebar message')
                 this.$emit('currentComponent', event)
-                // this.test = event
-                // console.log(this.test)
+            },
+            switchToTheMessageComponent(event) {
+                this.emersionDate = event
+                this.emersionDate = 'app-textmessanger'
+                this.$emit('switchToTheMessageComponent', this.emersionDate)
             }
         },
     }

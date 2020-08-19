@@ -7,7 +7,8 @@
                 <p class="blod-text">{{userName}}</p>
                 <p class="text">{{status}}</p>
             </div>
-            <button aria-label="adds message" class="button-add">+</button>
+            <button @click="ClickSendMessage" aria-label="adds message"
+                class="button-add button-add_condition-sidebar">+</button>
 
 
         </div>
@@ -22,6 +23,12 @@
             return {
                 userName: 'David Hill',
                 status: 'online',
+                eventClickButton: '',
+            }
+        },
+        methods: {
+            ClickSendMessage() {
+                this.$emit('switchToTheMessageComponent', this.eventClickButton)
             }
         },
     }

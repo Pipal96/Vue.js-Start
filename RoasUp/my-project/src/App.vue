@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <aside>
-      <Sidebar @currentComponent="currentComponent"></Sidebar>
+      <Sidebar @switchToTheMessageComponent="switchToTheMessageComponent" @currentComponent="currentComponent">
+      </Sidebar>
     </aside>
     <component :is="current"></component>
   </div>
@@ -11,6 +12,7 @@
   import Sidebar from './components/Sidebar.vue'
   import MyQuestions from './components/MyQuestions.vue'
   import Messager from './components/Messanger.vue'
+  import TextMessage from './components/TextMessage.vue'
 
   export default {
     name: 'App',
@@ -18,17 +20,20 @@
       Sidebar,
       'app-myquestions': MyQuestions,
       'app-messanger': Messager,
+      'app-textmessanger': TextMessage,
     },
     data() {
       return {
-        current: 'app-myquestions',
+        current: 'app-messanger',
       }
     },
     methods: {
       currentComponent(event) {
         let removeSpace = event.replace(/\s/g, '').toLowerCase();
         this.current = 'app-' + removeSpace
-        console.log(removeSpace)
+      },
+      switchToTheMessageComponent(event) {
+        this.current = event
       }
     },
 
@@ -66,10 +71,10 @@
   .button-add {
     border: none;
     border-radius: 100px;
-    color: #05212a;
+
     font-size: 35px;
     font-weight: bold;
-    background-color: #2a4249;
+
     height: 30px;
     width: 30px;
     display: flex;
@@ -78,20 +83,23 @@
     cursor: pointer;
   }
 
-  .button-add:hover {
+  .button-add_condition-sidebar {
+    color: #05212a;
+    background-color: #2a4249;
+  }
+
+  .button-add_condition-sidebar:hover {
     background-color: #486068;
   }
 
-  .button-add:focus {
+  .button-add_condition-sidebar:focus {
     outline: none;
     box-shadow: 0px 0px 5px 3px #486068;
   }
 
-  .button-add:active {
+  .button-add_condition-sidebar:active {
     box-shadow: 0px 0px 5px 3px #486068, 0px 0px 5px 5px #486068;
   }
-
-
 
   ul {
     padding: 0;
