@@ -4,7 +4,7 @@
       <Sidebar @switchToTheMessageComponent="switchToTheMessageComponent" @currentComponent="currentComponent">
       </Sidebar>
     </aside>
-    <component :is="current"></component>
+    <component @SendMessage="SendMessage" :SendMessage="this.variableMessage" :is="current"></component>
   </div>
 </template>
 
@@ -25,6 +25,7 @@
     data() {
       return {
         current: 'app-messanger',
+        variableMessage: '',
       }
     },
     methods: {
@@ -34,7 +35,11 @@
       },
       switchToTheMessageComponent(event) {
         this.current = event
-      }
+      },
+      SendMessage(event) {
+        this.variableMessage = event
+        console.log(this.variableMessage)
+      },
     },
 
   }

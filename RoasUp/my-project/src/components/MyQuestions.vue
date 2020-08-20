@@ -41,8 +41,11 @@
                 filterAll: 'All Questions',
                 filterNotRead: 'Not Read Questions',
                 filterSendMessage: 'Send Message',
+                test: ''
             }
         },
+        props: ['variableMessage'],
+        methods: {},
     }
 </script>
 
@@ -111,7 +114,7 @@
         display: flex;
         transition: 0.3s;
         border-radius: 5px;
-         background-color: transparent;
+        background-color: transparent;
     }
 
     .wrapper-my-questions__filter_condition:hover {

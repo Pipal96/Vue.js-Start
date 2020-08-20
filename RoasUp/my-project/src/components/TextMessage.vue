@@ -8,12 +8,12 @@
         </div>
 
         <div class="my-questions__cards-block">
-            <form class="form" action="#">
+            <form @submit="showMess" class="form" action="#">
 
-                <textarea class="form-message" name="messageUser" id="user_message" cols="30" rows="10"
-                    placeholder="Your message"></textarea>
+                <textarea v-model="variable" class="form-message" name="messageUser" id="user_message" cols="30"
+                    rows="10" placeholder="Your message"></textarea>
 
-                <input @click="showText" class="form-message__submit" type="submit" value="Submit">
+                <input class="form-message__submit" type="submit" value="Submit">
 
             </form>
         </div>
@@ -30,9 +30,15 @@
             }
         },
         methods: {
-            showText(event) {
-                this.variable = event
-                console.log(this.variable)
+            showMess() {
+                if (this.variable.length >= 1) {
+                    this.$emit('SendMessage', this.variable)
+                    this.variable = ''
+                    event.preventDefault()
+                } else {
+                    event.preventDefault()
+                }
+
             }
         },
     }
