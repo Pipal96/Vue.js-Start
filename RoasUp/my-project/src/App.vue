@@ -4,7 +4,7 @@
       <Sidebar @switchToTheMessageComponent="switchToTheMessageComponent" @currentComponent="currentComponent">
       </Sidebar>
     </aside>
-    <component @SendMessage="SendMessage" :SendMessage="this.variableMessage" :is="current"></component>
+    <component @SendMessage="SendMessage" :variableMessage="variableMessage" :is="current"></component>
   </div>
 </template>
 
@@ -13,7 +13,6 @@
   import MyQuestions from './components/MyQuestions.vue'
   import Messager from './components/Messanger.vue'
   import TextMessage from './components/TextMessage.vue'
-
   export default {
     name: 'App',
     components: {
@@ -21,11 +20,12 @@
       'app-myquestions': MyQuestions,
       'app-messanger': Messager,
       'app-textmessanger': TextMessage,
+
     },
     data() {
       return {
         current: 'app-messanger',
-        variableMessage: '',
+        variableMessage: [],
       }
     },
     methods: {

@@ -8,13 +8,12 @@
         </div>
 
         <div class="my-questions__cards-block">
-            <form @submit="showMess" class="form" action="#">
+            <form @submit.prevent="showMess" class="form" action="#">
 
-                <textarea v-model="variable" class="form-message" name="messageUser" id="user_message" cols="30"
+                <textarea v-model="cellVar" class="form-message" name="messageUser" id="user_message" cols="30"
                     rows="10" placeholder="Your message"></textarea>
 
                 <input class="form-message__submit" type="submit" value="Submit">
-
             </form>
         </div>
     </div>
@@ -25,20 +24,23 @@
         data() {
             return {
                 h1: 'Send Message',
-                variable: '',
-
+                variable: {
+                    message: ''
+                },
+                cellVar: '',
+                arrayMessage: [],
             }
         },
         methods: {
             showMess() {
-                if (this.variable.length >= 1) {
-                    this.$emit('SendMessage', this.variable)
-                    this.variable = ''
-                    event.preventDefault()
-                } else {
-                    event.preventDefault()
+                if (this.cellVar.length >= 1) {
+                    this.variable.message = this.cellVar
+                    this.arrayMessage.push(this.variable.message)
+                    console.log(this.arrayMessage)
+                    this.$emit('SendMessage', this.arrayMessage)
+                    this.variable.message = ''
+                    // Не получается добавить в массив объекты, решить проблему.
                 }
-
             }
         },
     }

@@ -32,6 +32,7 @@
                 default_message: 'Hello, what is the delivery time ?',
                 default_time: '1h',
                 user_time: "1:33",
+              outputMessage: '',
             }
         },
     }
