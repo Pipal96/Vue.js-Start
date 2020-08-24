@@ -25,21 +25,32 @@
             return {
                 h1: 'Send Message',
                 variable: {
-                    message: ''
+                    message: '',
+                    timeHoursMessage: new Date(),
+                    timeMinutesMessage: new Date(),
                 },
                 cellVar: '',
-                arrayMessage: [],
+                arrayMessage: [
+
+                ],
             }
         },
         methods: {
             showMess() {
                 if (this.cellVar.length >= 1) {
                     this.variable.message = this.cellVar
-                    this.arrayMessage.push(this.variable.message)
-                    console.log(this.arrayMessage)
+                    let date = new Date()
+                    this.arrayMessage.push({
+                        message: this.variable.message,
+                        timeHoursMessage: date.getHours(),
+                        timeMinutesMessage: date.getMinutes(),
+                    }, )
+                    
+                    
+                    console.log(this.variable)
+                    
                     this.$emit('SendMessage', this.arrayMessage)
-                    this.variable.message = ''
-                    // Не получается добавить в массив объекты, решить проблему.
+                    this.cellVar = ''
                 }
             }
         },
