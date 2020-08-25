@@ -48,7 +48,7 @@
             <div class="card__triangle_open-case"></div>
           </div>
           <div class="card__wrapper-status-time">
-            <span aria-label="how when the task was set" class="card__time">{{}}</span>
+            <span aria-label="how when the task was set" class="card__time">{{hoursTimeAgo}}:{{minutesTimeAgo}}h</span>
           </div>
         </div>
 
@@ -57,8 +57,8 @@
             <p class="card__message">{{card.message}}</p>
           </div>
           <div class="card__date-message-block">
-            <p class="card__date-message">Goest:<strong>{{card.timeHoursMessage}}:{{card.timeMinutesMessage}}</strong>
-              time</p>
+            <p class="card__date-message"><strong>Goest: {{card.timeHoursMessage}}:{{card.timeMinutesMessage}}
+                time</strong></p>
           </div>
         </div>
 
@@ -88,6 +88,8 @@
         user_time: "1:33",
         hoursTimeAgo: '',
         minutesTimeAgo: '',
+        hoursTimeNow: new Date(),
+        minutesTimeNow: new Date(),
       }
     },
     props: {
@@ -95,13 +97,28 @@
         type: Array,
       },
     },
+    mounted() {
+      this.variableMessage.forEach((value) => {
+        this.hoursTimeAgo = this.hoursTimeNow.getHours() - value.timeHoursMessage
+        this.minutesTimeAgo = this.minutesTimeNow.getMinutes() - value.timeMinutesMessage
+        // console.log(this.hoursTimeAgo)
+        // console.log(this.minutesTimeAgo)
+      })
+    },
+    created() {
+
+
+    },
     methods: {
       showProps() {
         console.log(this.variableMessage)
       },
+
     },
     computed: {
-
+      timeNow(event) {
+        return event - this.hoursTimeNow.getHours()
+      }
     }
   }
 </script>

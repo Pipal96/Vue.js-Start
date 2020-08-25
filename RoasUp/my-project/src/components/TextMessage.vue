@@ -10,7 +10,7 @@
         <div class="my-questions__cards-block">
             <form @submit.prevent="showMess" class="form" action="#">
 
-                <textarea v-model="cellVar" class="form-message" name="messageUser" id="user_message" cols="30"
+                <textarea @keyup.prevent.enter="showMess" v-model="cellVar" class="form-message" name="messageUser" id="user_message" cols="30"
                     rows="10" placeholder="Your message"></textarea>
 
                 <input class="form-message__submit" type="submit" value="Submit">
@@ -45,10 +45,7 @@
                         timeHoursMessage: date.getHours(),
                         timeMinutesMessage: date.getMinutes(),
                     }, )
-                    
-                    
                     console.log(this.variable)
-                    
                     this.$emit('SendMessage', this.arrayMessage)
                     this.cellVar = ''
                 }
