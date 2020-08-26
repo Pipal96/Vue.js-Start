@@ -38,7 +38,6 @@
       },
       SendMessage(event) {
         this.variableMessage = event
-        console.log(this.variableMessage)
       },
     },
 

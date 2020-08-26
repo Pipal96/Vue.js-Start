@@ -45,7 +45,6 @@
                         timeHoursMessage: date.getHours(),
                         timeMinutesMessage: date.getMinutes(),
                     }, )
-                    console.log(this.variable)
                     this.$emit('SendMessage', this.arrayMessage)
                     this.cellVar = ''
                 }

@@ -2,7 +2,7 @@
   <div class="wrapper-my-questions">
     <div class="wrapper-my-questions__top">
       <div>
-        <h1 @click="showProps" class="wrapper-my-questions__h1">{{ h1 }}</h1>
+        <h1 class="wrapper-my-questions__h1">{{ h1 }}</h1>
 
         <select aria-label="filter message" class="wrapper-my-questions__filter wrapper-my-questions__filter_condition"
           id="select" name="select-filter">
@@ -101,25 +101,8 @@
       this.variableMessage.forEach((value) => {
         this.hoursTimeAgo = this.hoursTimeNow.getHours() - value.timeHoursMessage
         this.minutesTimeAgo = this.minutesTimeNow.getMinutes() - value.timeMinutesMessage
-        // console.log(this.hoursTimeAgo)
-        // console.log(this.minutesTimeAgo)
       })
     },
-    created() {
-
-
-    },
-    methods: {
-      showProps() {
-        console.log(this.variableMessage)
-      },
-
-    },
-    computed: {
-      timeNow(event) {
-        return event - this.hoursTimeNow.getHours()
-      }
-    }
   }
 </script>
 
